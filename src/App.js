@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import BrotherFirstChildren from "./components/BrotherFirstChildren";
+import { UserProvider } from "./components/context/UserProvider";
 
 import FirstChildren from "./components/FirstChildren";
 
@@ -7,31 +8,40 @@ export const userContext = React.createContext();
 
 const App = () => {
     // console.log("userContext", userContext);
+    // const [user, setUser] = useState(null);
 
-    const [user, setUser] = useState(null);
-
-    const toggleUser = () => {
-        if (user) {
-            setUser(null);
-        } else {
-            setUser({
-                name: "Jane",
-                lastname: "Doe",
-                age: 30,
-                email: "johndoe@mail.com",
-            });
-        }
-    };
+    // const toggleUser = () => {
+    //    if (user) {
+    //        setUser(null);
+    //    } else {
+    //        setUser({
+    //            name: "Jhon",
+    //            lastname: "Doe",
+    //            age: 30,
+    //            email: "johndoe@mail.com",
+    //        });
+    //    }
+    //     user
+    //         ? setUser(null)
+    //         : setUser({
+    //               name: "Jhon",
+    //               lastname: "Doe",
+    //               age: 30,
+    //               email: "johndoe@mail.com",
+    //           });
+    // };
 
     return (
-        <userContext.Provider value={user}>
+        <UserProvider>
+            {/* // <userContext.Provider value={user}> */}
             <div className="App">
                 <h1>React Context</h1>
-                <button onClick={toggleUser}>Change User</button>
+                {/* <button onClick={toggleUser}>Change User</button> */}
                 <FirstChildren />
                 <BrotherFirstChildren />
             </div>
-        </userContext.Provider>
+            {/* // </userContext.Provider> */}
+        </UserProvider>
     );
 };
 

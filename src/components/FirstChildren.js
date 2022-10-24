@@ -1,15 +1,17 @@
-import { userContext } from "../App";
-import { useContext } from "react";
+// import { userContext } from "../App";
+// import { useContext } from "react";
 import SecondChildren from "./SecondChildren";
+import { useUserContext, useUserToggleContext } from "./context/UserProvider";
 
 const FirstChildren = () => {
-    const user = useContext(userContext);
+    const user = useUserContext();
+    const toggleUser = useUserToggleContext();
+    console.log("user en FirstChildren", user);
 
-    console.log("user", user);
     return (
         <div>
             <h1>First Children</h1>
-            {user && <h2>{user.name}</h2>}
+            <button onClick={toggleUser}>Change User</button>
             <SecondChildren />
         </div>
     );
