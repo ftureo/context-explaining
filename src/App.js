@@ -1,6 +1,6 @@
 import React from "react";
 import BrotherFirstChildren from "./components/BrotherFirstChildren";
-import { UserProvider } from "./components/context/UserProvider";
+import { UserProvider } from "./context/UserProvider";
 
 import FirstChildren from "./components/FirstChildren";
 
@@ -8,7 +8,7 @@ export const userContext = React.createContext();
 
 const App = () => {
     // console.log("userContext", userContext);
-    // const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null)
 
     // const toggleUser = () => {
     //    if (user) {
@@ -33,7 +33,13 @@ const App = () => {
 
     return (
         <UserProvider>
-            {/* // <userContext.Provider value={user}> */}
+            {/* // <userContext.Provider 
+                value={
+                    {
+                        user,
+                        setUser
+                    }
+                }> */}
             <div className="App">
                 <h1>React Context</h1>
                 {/* <button onClick={toggleUser}>Change User</button> */}
